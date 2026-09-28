@@ -9,7 +9,7 @@ function pfEncode(value) {
 function verifySignature(pairs, passphrase) {
     let str = pairs
       .filter(([k]) => k !== 'signature')
-      .map(([l, v]) => `${k}=${pfEncode(v)}`)
+      .map(([k, v]) => `${k}=${pfEncode(v)}`)
       .join('&');
     if (passphrase) str += `&passphrase=${pfEncode(passphrase)}`;
     const expected = crypto.createHash('md5').update(str).digest('hex');
