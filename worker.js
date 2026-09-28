@@ -20,7 +20,6 @@ export default {
       return new Response('Not found', { status: 404 });
     }
  
-    // Anything else: serve the static site
     return env.ASSETS.fetch(request);
   }
 };
