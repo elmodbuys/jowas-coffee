@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redirecting to PayFast…</title>
+  <style>
+    body { font-family: sans-serif; display: grid; place-items: center; min-height: 100vh; margin: 0; text-align: center; }
+  </style>
+</head>
+<body>
+  <p id="msg">Taking you to PayFast to complete your payment…</p>
+
+  <script>
+    (async () => {
+      const msg = document.getElementById('msg');
+      const publicToken = new URLSearchParams(location.search).get('publicToken');
+
+      if (!publicToken) {
+        msg.textContent = 'Something went wrong. Please go back and try again.';
+        return;
+      }
+
+      try {
+        const res = await fetch(`/api/create-payfast-session?publicToken=${encodeURIComponent(publicToken)}`);
+        if (!res.ok) throw new Error('session failed');
+        const { fields, actionUrl } = await res.json();
+
+        const form = document.createElement('form');
+        form.method = 'POST';
+        form.action = actionUrl;
+
+        for (const [name, value] of Object.entries(fields)) {
+          const input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = name;
+          input.value = value;
+          form.appendChild(input);
+        }
+
+        document.body.appendChild(form);
+        form.submit();
+      } catch (err) {
+        msg.textContent = 'Something went wrong starting your payment. Please go back and try again.';
+      }
+    })();
+  </script>
+</body>
+</html>
