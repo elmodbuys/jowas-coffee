@@ -181,7 +181,7 @@ products.forEach(product => {
     <button class="btn btn-primary snipcart-add-item"
       data-item-id="${product.id}"
       data-item-price="${product.price}"
-      data-item-url="/"
+      data-item-url="/products.json"
       data-item-name="${product.name}">
       Add to cart
     </button>

@@ -1,0 +1,11 @@
+[
+  { "id": "coffee-medium-250g", "price": 170 },
+  { "id": "coffee-medium-1kg", "price": 350 },
+  { "id": "spicy-juicy-steak", "price": 25 },
+  { "id": "spice-hot-chicken", "price": 25 },
+  { "id": "tasty-chicken-spice", "price": 25 },
+  { "id": "fish-seafood-spice", "price": 25 },
+  { "id": "salt-pepper-spice", "price": 25 },
+  { "id": "hot-spicy-sauce", "price": 30 },
+  { "id": "bbq-steak-rib-sauce", "price": 30 }
+]
