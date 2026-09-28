@@ -15,7 +15,7 @@ function buildSignature(fields, passphrase) {
 }
 
 export async function onRequestGet({ request, env }) {
-    const url = newURL(request.url);
+    const url = new URL(request.url);
     const publicToken = url.searchParams.get('publicToken');
     if (!publicToken) return new Response('Missing publicToken', { status: 400 });
 
