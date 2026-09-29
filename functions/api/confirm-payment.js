@@ -51,7 +51,7 @@ export async function onRequestPost({ request, env }) {
     {
       method: 'POST',
       headers: {
-        Authorization: `Basic ${btoa(env.SNIPCART_SECRET_API_KEY + ':')}`,
+        Authorization: `Bearer ${env.SNIPCART_SECRET_API_KEY}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
@@ -63,7 +63,10 @@ export async function onRequestPost({ request, env }) {
   );
 
   if (!confirm.ok) {
-    console.log('ITN: Snipcart confirm failed', confirm.status, await confirm.text());
+    const body = await confirm.text();
+    console.log('ITN: Snipcart confirm failed', confirm.status);
+    console.log('ITN: Snipcart response body:', body);
+    console.log('ITN: key length used', env.SNIPCART_SECRET_API_KEY?.length);
     return new Response('Snipcart confirm failed', { status: 500 });
   }
 
