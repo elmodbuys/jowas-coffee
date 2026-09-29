@@ -1,3 +1,5 @@
+// Cloudflare Pages Function — /api/confirm-payment  (PayFast's notify_url / ITN)
+
 import crypto from 'node:crypto';
 
 function pfEncode(value) {
@@ -6,6 +8,7 @@ function pfEncode(value) {
     .replace(/%20/g, '+');
 }
 
+// ITN: rebuild from the fields in the order PayFast sent them, minus signature.
 function verifySignature(pairs, passphrase) {
   let str = pairs
     .filter(([k]) => k !== 'signature')
@@ -21,6 +24,7 @@ export async function onRequestPost({ request, env }) {
   const pairs = [...new URLSearchParams(await request.text()).entries()];
   const data = Object.fromEntries(pairs);
 
+  // 1. Signature
   if (!verifySignature(pairs, env.PAYFAST_PASSPHRASE)) {
     console.log('ITN rejected: bad signature');
     return new Response('Invalid signature', { status: 400 });
@@ -31,13 +35,14 @@ export async function onRequestPost({ request, env }) {
     return new Response('Ignored', { status: 200 });
   }
 
+  // 2. Re-fetch the Snipcart session and check the amount ourselves
   const publicToken = data.custom_str1;
   const sessionRes = await fetch(
     `https://payment.snipcart.com/api/public/custom-payment-gateway/payment-session?publicToken=${encodeURIComponent(publicToken)}`
   );
   if (!sessionRes.ok) {
     console.log('ITN: session lookup failed', sessionRes.status);
-    return new Response('Session not found', { status: 500 });
+    return new Response('Session not found', { status: 500 }); // 500 => PayFast retries
   }
   const session = await sessionRes.json();
 
@@ -46,12 +51,13 @@ export async function onRequestPost({ request, env }) {
     return new Response('Amount mismatch', { status: 400 });
   }
 
+  // 3. Tell Snipcart the payment is processed
   const confirm = await fetch(
     'https://payment.snipcart.com/api/private/custom-payment-gateway/payment',
     {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${env.SNIPCART_SECRET_API_KEY}`,
+        Authorization: `Basic ${btoa(env.SNIPCART_SECRET_API_KEY + ':')}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
