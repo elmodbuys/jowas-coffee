@@ -64,9 +64,11 @@ export async function onRequestPost({ request, env }) {
 
   if (!confirm.ok) {
     const body = await confirm.text();
+    const key = env.SNIPCART_SECRET_API_KEY || '';
     console.log('ITN: Snipcart confirm failed', confirm.status);
     console.log('ITN: Snipcart response body:', body);
-    console.log('ITN: key length used', env.SNIPCART_SECRET_API_KEY?.length);
+    console.log('ITN: key first/last 4', key.slice(0, 4), key.slice(-4));
+    console.log('ITN: key has whitespace?', /\s/.test(key));
     return new Response('Snipcart confirm failed', { status: 500 });
   }
 
