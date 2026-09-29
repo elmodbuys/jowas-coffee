@@ -51,7 +51,7 @@ export async function onRequestPost({ request, env }) {
     {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${env.SNIPCART_SECRET_API_KEY}`,
+        Authorization: `Basic ${btoa(env.SNIPCART_SECRET_API_KEY + ':')}`,
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
