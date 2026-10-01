@@ -51,21 +51,35 @@ const galleryImages = [
 
 const flipStage = document.getElementById('flipStage');
 galleryImages.forEach((src, i) => {
-    const img = document.createElement('img');
-    img.dataset.src = src;
-    if (i === 0) img.src = src;
-    img.className = 'flipbook-image' + (i === 0 ? ' active ' : '');
-    img.alt = '';
-    flipStage.appendChild(img);
+    const wrap = document.createElement('div');
+    wrap.className = 'flipbook-image' + (i === 0 ? ' active' : '');
+
+    const bg = document.createElement('img');
+    bg.className = 'flipbook-bg';
+    bg.dataset.src = src;
+    bg.alt = '';
+
+    const fg = document.createElement('img');
+    fg.className = 'flipbook-fg';
+    fg.dataset.src = src;
+    if (i === 0) { bg.src = src; fg.src = src; }
+    fg.alt = '';
+
+    wrap.appendChild(bg);
+    wrap.appendChild(fg);
+    flipStage.appendChild(wrap);
 });
 
 const flipImages = document.querySelectorAll('.flipbook-image');
 const flipCount = document.getElementById('flipCount');
 let currentFlip = 0;
 
-function loadImage(img) {
-    if (!img.src && img.dataset.src) {
-        img.src = img.dataset.src;
+function loadImage(wrap) {
+    const bg = wrap.querySelector('.flipbook-bg');
+    const fg = wrap.querySelector('.flipbook-fg');
+    if (!fg.src && fg.dataset.src) {
+        bg.src = bg.dataset.src;
+        fg.src = fg.dataset.src;
     }
 }
 

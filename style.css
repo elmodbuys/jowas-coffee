@@ -434,6 +434,10 @@ h1, h2, h3 {
     margin: var(--space-sm) 0 var(--space-xl);
 }
 
+.gallery-image-box {
+    background-color: #d9b27c;
+}
+
 .flipbook {
     max-width: 500px;
     margin: 0 auto;
@@ -454,21 +458,36 @@ h1, h2, h3 {
     left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    overflow: hidden;
     opacity: 0;
     transform: rotateY(90deg);
     transform-origin: left center;
-    transition: transform 0.5s ease, opacity 0.3s ease;
     backface-visibility: hidden;
     pointer-events: none;
-    object-position: center;
-    object-fit: contain;
 }
 
 .flipbook-image.active {
     opacity: 1;
     transform: rotateY(0deg);
     pointer-events: auto;
+}
+
+.flipbook-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(10px) brightness(0.7);
+    transform: scale(1.15);
+}
+
+.flipbook-fg {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
 }
 
 .flipbook-controls {
@@ -521,6 +540,8 @@ h1, h2, h3 {
 }
 
 .shop-item {
+    display: flex;
+    flex-direction: column;
     background: var(--color-tan);
     border-radius: 12px;
     padding: var(--space-lg);
@@ -531,6 +552,10 @@ h1, h2, h3 {
     border-radius: 8px;
     overflow: hidden;
     margin-bottom: var(--space-md);
+    height: 270px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .shop-item-image img {
@@ -538,6 +563,8 @@ h1, h2, h3 {
     height: 100%;
     object-fit: contain;
     display: block;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 .shop-item h3 {
@@ -561,7 +588,7 @@ h1, h2, h3 {
 .shop-item .btn {
     width: 100%;
     text-align: center;
-    margin-top: var(--space-sm);
+    margin-top: auto;
 }
 
 .phone-line {
