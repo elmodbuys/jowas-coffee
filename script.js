@@ -86,16 +86,27 @@ function loadImage(wrap) {
     }
 }
 
+function preloadAhead(index) {
+    [1, 2].forEach(offset => {
+        loadImage(flipImages[(index + offset) % flipImages.length]);
+    });
+}
+
 function showFlip(index) {
     flipImages[currentFlip].classList.remove('active');
-    currentFlip = (index + flipImages.length) % flipImages.length;
+    currentFlip = (index + flipImages,length) % flipImages.length;
     loadImage(flipImages[currentFlip]);
     flipImages[currentFlip].classList.add('active');
     flipCount.textContent = `${currentFlip + 1} / ${flipImages.length}`;
-
-    const next = flipImages[(currentFlip + 1) % flipImages.length];
-    loadImage(next);
+    preloadAhead(currentFlip);
 }
+
+new IntersectionObserver((entries, observer) => {
+    if (entries[0].isIntersecting) {
+        preloadAhead(0);
+        observer.disconnect();
+    }
+}, { rootMargin: '300px' }).observe(document.getElementById('gallery'));
 
 document.getElementById('flipNext').addEventListener('click', () => showFlip(currentFlip + 1));
 document.getElementById('flipPrev').addEventListener('click', () => showFlip(currentFlip - 1));
@@ -191,7 +202,7 @@ products.forEach(product => {
     const card = document.createElement('div');
     card.className = 'shop-item';
     card.innerHTML = `
-    <div class="shop-item-image"><img src="${product.image}" alt="${product.name}"></div>
+    <div class="shop-item-image"><img src="${product.image}" alt="${product.name}" loading="lazy"></div>
     <h3>${product.name}</h3>
     <p>${product.description}</p>
     <p class="shop-item-price">R${product.price.toFixed(2)}</p>
