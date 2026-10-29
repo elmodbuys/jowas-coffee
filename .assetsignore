@@ -1,0 +1,8 @@
+.git
+node_modules
+images-backup
+resize-images.js
+package.json
+package-lock.json
+.gitignore
+.assetsignore
