@@ -47,6 +47,9 @@ const galleryImages = [
     'images/jowas-sauce-bbq1.jpg',
     'images/jowas-sauce-pour.jpg',
     'images/jowas-sauce-baste.jpg',
+    'images/jowas-truck1.jpeg',
+    'images/jowas-truck2.jpeg',
+    'images/jowas-truck3.jpeg',
 ];
 
 const flipStage = document.getElementById('flipStage');
