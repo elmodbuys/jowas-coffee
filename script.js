@@ -94,7 +94,7 @@ function preloadAhead(index) {
 
 function showFlip(index) {
     flipImages[currentFlip].classList.remove('active');
-    currentFlip = (index + flipImages,length) % flipImages.length;
+    currentFlip = (index + flipImages.length) % flipImages.length;
     loadImage(flipImages[currentFlip]);
     flipImages[currentFlip].classList.add('active');
     flipCount.textContent = `${currentFlip + 1} / ${flipImages.length}`;
