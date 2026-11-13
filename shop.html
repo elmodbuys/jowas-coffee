@@ -1,0 +1,70 @@
+<!Doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Jowa's Coffee</title>
+        <meta name="description" content="Jowa's Coffee is a proudly South African brand rooted in heritage, resilience and bold flavour. AAA-plus graded beans from Uganda and Ethiopia, roasted medium to dark.">
+        <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Space+Grotesk:wght@300..700&family=Karla:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+        <link rel="icon" type="image/png" href="images/Jowa's bean favi.webp">
+    </head>
+
+    <body>
+
+        <header class="site-header">
+            <a href="index.html" class="logo">
+                <img src="images/jowas-logo.jpeg" alt="Jowa's Coffee">
+            </a>
+            <nav class="site-nav" aria-label="Main">
+                <a href="index.html">Home</a>
+                <a href="shop.html" aria-current="page">Shop</a>
+                <a href="store-finder.html">Find Us</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </header>
+
+        <section class="shop" id="shop">
+            <p class="eyebrow center">take it home</p>
+            <h2 class="center">Shop</h2>
+            <div class="shop-grid" id="shopGrid"></div>
+        </section>
+
+         <footer class="site-footer" id="contact">
+            <div class="footer-brand">
+                <p class="logo">Jowa's Coffee</p>
+                <p>Jowa's Coffee is a proudly South African brand rooted in heritage, resilience, and bold flavour.</p>
+            </div>
+            <div class="footer-contact">
+                <h3>Get in touch</h3>
+                <p class="phone-line">Jowa's Coffee Saxdown - 077 472 4347 </p>
+                <a href="https://wa.me/27772569954">WhatsApp - 077 256 9954</a>
+                <a href="mailto:info@jowas.co.za">info@jowas.co.za</a>
+            </div>
+            <div class="footer-social">
+                <h3>Follow along</h3>
+                <a href="https://www.tiktok.com/@jowas.coffee?_r=1&_t=ZS-9A9pB669xNU" target="_blank" rel="noopener">TikTok</a>
+                <a href="https://www.instagram.com/jowascoffee" target="_blank" rel="noopener">Instagram</a>
+                <a href="https://www.facebook.com/JowasGrill" target="_blank" rel="noopener">Facebook</a>
+                <a href="https://www.youtube.com/@JowasBraaiShow" target="_blank" rel="noopener">YouTube</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Jowa's Coffee. Part of the Jowa's family - <a href="https://jowas.co.za" target="_blank" rel="noopener">jowas.co.za</a></p>
+                <p>#thepeoplescoffee</p>
+                <p>Designed by ElmoDev Web Development - <a href="https://elmodev.co.za/" target="_blank" rel="noopener">elmodev.co.za</a></p>
+            </div>
+        </footer>
+        <script src="js/main.js" defer></script>
+        <script src="js/shop.js" defer></script>
+        <script>
+            window.SnipcartSettings = {
+            publicApiKey: 'MTNlNjZhZGMtNWE1Ni00NjNmLTkzOWItN2VlYTM1YmMwODc3NjM5MjU1NzQyMTg1NjkzODk0',
+            loadStrategy: 'on-user-interaction',
+            };
+
+            (()=>{var c,d;(d=(c=window.SnipcartSettings).version)!=null||(c.version="3.0");var s,S;(S=(s=window.SnipcartSettings).timeoutDuration)!=null||(s.timeoutDuration=2750);var l,p;(p=(l=window.SnipcartSettings).domain)!=null||(l.domain="cdn.snipcart.com");var w,u;(u=(w=window.SnipcartSettings).protocol)!=null||(w.protocol="https");var f=window.SnipcartSettings.version.includes("v3.0.0-ci")||window.SnipcartSettings.version!="3.0"&&window.SnipcartSettings.version.localeCompare("3.4.0",void 0,{numeric:!0,sensitivity:"base"})===-1,m=["focus","mouseover","touchmove","scroll","keydown"];window.LoadSnipcart=o;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",r):r();function r(){window.SnipcartSettings.loadStrategy?window.SnipcartSettings.loadStrategy==="on-user-interaction"&&(m.forEach(t=>document.addEventListener(t,o)),setTimeout(o,window.SnipcartSettings.timeoutDuration)):o()}var a=!1;function o(){if(a)return;a=!0;let t=document.getElementsByTagName("head")[0],e=document.querySelector("#snipcart"),i=document.querySelector(`src[src^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][src$="snipcart.js"]`),n=document.querySelector(`link[href^="${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}"][href$="snipcart.css"]`);e||(e=document.createElement("div"),e.id="snipcart",e.setAttribute("hidden","true"),document.body.appendChild(e)),v(e),i||(i=document.createElement("script"),i.src=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.js`,i.async=!0,t.appendChild(i)),n||(n=document.createElement("link"),n.rel="stylesheet",n.type="text/css",n.href=`${window.SnipcartSettings.protocol}://${window.SnipcartSettings.domain}/themes/v${window.SnipcartSettings.version}/default/snipcart.css`,t.prepend(n)),m.forEach(g=>document.removeEventListener(g,o))}function v(t){!f||(t.dataset.apiKey=window.SnipcartSettings.publicApiKey,window.SnipcartSettings.addProductBehavior&&(t.dataset.configAddProductBehavior=window.SnipcartSettings.addProductBehavior),window.SnipcartSettings.modalStyle&&(t.dataset.configModalStyle=window.SnipcartSettings.modalStyle),window.SnipcartSettings.currency&&(t.dataset.currency=window.SnipcartSettings.currency),window.SnipcartSettings.templatesUrl&&(t.dataset.templatesUrl=window.SnipcartSettings.templatesUrl))}})();
+        </script>
+    </body>
+</html>    
