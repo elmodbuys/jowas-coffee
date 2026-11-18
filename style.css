@@ -848,6 +848,128 @@ section[id] {
     scroll-margin-top: 56px;
 }
 
+.everyday {
+    background: var(--color-brown-dark);
+    padding: var(--space-xl) var(--space-lg);
+    max-width: var(--max-width);
+    margin: 0 auto var(--space-md);
+}
+
+.everyday-header {
+    text-align: center;
+    margin-bottom: var(--space-xl);
+}
+
+.everyday-header h2 {
+    font-size: 2.25rem;
+    color: var(--color-bg);
+    margin: var(--space-sm) 0;
+}
+
+.everyday-sub {
+    color: var(--color-tan);
+}
+
+.everyday-group {
+    margin-bottom: var(--space-xl);
+}
+
+.everyday-group-head {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-md);
+}
+
+.price-badge {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 2rem;
+    line-height: 1;
+    padding: 0.6rem 1.4rem;
+    border-radius: 999px;
+    background: var(--color-gold);
+    color: var(--color-brown-dark);
+}
+
+.price-badge-tan {
+    background: var(--color-tan);
+}
+
+.everyday-group-label {
+    font-family: var(--font-eyebrow);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+    color: var(--color-tan);
+}
+
+.everyday-grid {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--space-md);
+    grid-auto-rows: 1fr;
+}
+
+.everyday-card {
+    background: var(--color-brown-mid);
+    color: var(--color-bg);
+    border-radius: 12px;
+    padding: var(--space-lg);
+    font-weight: 700;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+.everyday-card small {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: var(--color-tan);
+}
+
+.everyday-card-wide {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.everyday-footer {
+    border-top: 1px solid var(--color-brown-mid);
+    padding-top: var(--space-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--space-md);
+    color: var(--color-bg);
+}
+
+.everyday-card-span {
+    grid-column: span 2;
+}
+
+.everyday-card-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.everyday-icon {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    fill: none;
+    stroke: var(--color-gold);
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    order: 1;
+    margin-left: auto;
+}
+
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
@@ -914,5 +1036,26 @@ section[id] {
     }
     .menu-flipbook-stage {
         min-height: 560px;
+    }
+    .everyday-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .everyday-card-wide {
+        gap: var(--space-sm);
+    }
+    .everyday-footer {
+        flex-direction: column;
+        text-align: center;
+    }
+    .everyday {
+        padding: var(--space-xl) var(--space-md);
+    }
+    .everyday-card {
+        padding: var(--space-md);
+        gap: var(--space-sm);
+    }
+    .everyday-icon {
+        width: 24px;
+        height: 24px;
     }
 }
