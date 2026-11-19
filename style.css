@@ -4,6 +4,7 @@
     --color-brown-dark: #2b1d14;
     --color-brown-mid: #4a2e1e;
     --color-gold: #c9a24b;
+    --color-gold-text: #8a6a1f;
     --color-text: #2b1d14;
     --color-text-muted: #6b5a4a;
     --font-heading: 'Bricolage Grotesque', sans-serif;
@@ -40,6 +41,14 @@ h1, h2, h3 {
     letter-spacing: 0.08em;
     font-size: 0.85rem;
     color: var(--color-gold);
+}
+
+.story, .eyebrow,
+.menu > .eyebrow,
+.gallery .eyebrow,
+.shop .eyebrow,
+.find-us .eyebrow {
+    color: var(--color-gold-text);
 }
 
 .site-header {
@@ -196,7 +205,7 @@ h1, h2, h3 {
 }
 
 .link-arrow {
-    color: var(--color-gold);
+    color: var(--color-gold-text);
     font-family: var(--font-eyebrow);
     text-decoration: none;
     font-weight: 500;
@@ -311,7 +320,7 @@ h1, h2, h3 {
     font-family: var(--font-eyebrow);
     font-size: 1rem;
     margin-bottom: var(--space-sm);
-    color: var(--color-gold);
+    color: var(--color-gold-text);
 }
 
 .find-us-details p {
@@ -336,10 +345,18 @@ h1, h2, h3 {
     color: var(--color-bg);
     padding: var(--space-lg) var(--space-lg) var(--space-md);
     display: grid;
-    grid-template-columns: 2fr 1fr 1fr;
+    grid-template-columns: 1fr auto 1fr;
     gap: var(--space-lg);
     max-width: var(--max-width);
     margin: 0 auto;
+}
+
+.footer-contact {
+    justify-self: center;
+}
+
+.footer-social {
+    justify-self: center;
 }
 
 .site-footer .logo {
@@ -970,6 +987,18 @@ section[id] {
     margin-left: auto;
 }
 
+.social-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+.footer-social a {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+}
+
 @media (max-width: 768px) {
     .hero {
         flex-direction: column;
@@ -1057,5 +1086,11 @@ section[id] {
     .everyday-icon {
         width: 24px;
         height: 24px;
+    }
+    .footer-social-icons {
+        justify-content: center;
+    }
+    .footer-social a {
+        justify-content: center;
     }
 }
