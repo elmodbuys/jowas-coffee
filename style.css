@@ -48,7 +48,7 @@ h1, h2, h3 {
 .gallery .eyebrow,
 .shop .eyebrow,
 .find-us .eyebrow {
-    color: var(--color-gold-text);
+    color: var(--color-tan);
 }
 
 .site-header {
@@ -110,6 +110,7 @@ h1, h2, h3 {
 
 .hero-content .eyebrow {
     margin-bottom: var(--space-sm);
+    color: var(--color-gold)
 }
 
 .hero-content h1 {
@@ -415,6 +416,7 @@ h1, h2, h3 {
     height: 140px;
     width: 140px;
     display: block;
+    object-fit: cover;
 }
 
 .nav-cta {
@@ -789,6 +791,7 @@ h1, h2, h3 {
     align-items: center;
     justify-content: center;
     text-align: center;
+    object-fit: cover;
 }
 
 .menu-cover-logo {
