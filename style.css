@@ -864,6 +864,10 @@ h1, h2, h3 {
     color: var(--color-gold);
 }
 
+.sub-nav a[aria-current="page"] {
+    color: var(--color-gold);
+}
+
 section[id] {
     scroll-margin-top: 56px;
 }
