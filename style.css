@@ -1096,4 +1096,12 @@ section[id] {
     .footer-social a {
         justify-content: center;
     }
+    .sub-nav {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+    }
+    .sub-nav a {
+        white-space: nowrap;
+    }
 }
