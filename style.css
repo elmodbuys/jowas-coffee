@@ -263,7 +263,7 @@ h1, h2, h3 {
     background-color: var(--color-brown-mid);
     background-image: 
         linear-gradient(rgba(74, 46, 30, 0.75), rgba(74, 46, 30, 0.75)),
-        url("images/jowas-truck1.jpeg");
+        url("images/jowas-truck1.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

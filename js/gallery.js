@@ -3,7 +3,7 @@
     if (!flipStage) return;
 
     const galleryImages = [
-        'images/jowas-1.jpg',
+        'images/jowas-1.webp',
         'images/jowas-2.jpg',
         'images/jowas-3.jpg',
         'images/jowas-4.jpg',
